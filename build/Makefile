@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rmlans/Desktop/Practice/Py_C_Burgers
+CMAKE_SOURCE_DIR = /gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rmlans/Desktop/Practice/Py_C_Burgers/build
+CMAKE_BINARY_DIR = /gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rmlans/Desktop/Practice/Py_C_Burgers/build/CMakeFiles /home/rmlans/Desktop/Practice/Py_C_Burgers/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/build/CMakeFiles /gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rmlans/Desktop/Practice/Py_C_Burgers/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

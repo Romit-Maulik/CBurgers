@@ -8,6 +8,9 @@ import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
+tf.config.threading.set_intra_op_parallelism_threads(0)
+tf.config.threading.set_inter_op_parallelism_threads(2)
+
 data_array = np.zeros(shape=(2001,258)) # Very important that this matches the number of timesteps in the main solver
 x = np.arange(start=0,stop=2.0*np.pi,step=2.0*np.pi/256)
 iternum = 0
