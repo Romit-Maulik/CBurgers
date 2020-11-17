@@ -24,4 +24,6 @@ rm -rf app
 rm -rf cmake_install.cmake
 rm -rf Makefile
 rm -rf CMakeCache.txt
-cd ..
+
+cmake ../
+make
