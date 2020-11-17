@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/app.cpp" "/gpfs/mira-home/rmaulik/project_link/SDL_Tutorial/CBurgers/build/CMakeFiles/app.dir/app.cpp.o"
+  "/lus/theta-fs0/projects/datascience/rmaulik/SDL_Tutorial/CBurgers/app.cpp" "/lus/theta-fs0/projects/datascience/rmaulik/SDL_Tutorial/CBurgers/build/CMakeFiles/app.dir/app.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "Intel")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/lus/theta-fs0/software/datascience/a21/intelpython3/include/python3.6m"
-  "/soft/datascience/a21/intelpython3/lib/python3.6/site-packages/numpy/core/include"
+  "/usr/include/python3.6m"
+  "/usr/local/lib/python3.6/dist-packages/numpy/core/include"
   )
 
 # Targets to which this target links.
