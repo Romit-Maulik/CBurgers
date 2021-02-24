@@ -16,9 +16,10 @@ def collection_func(input_array):
     global data_array,iternum
     data_array[iternum,:] = input_array[:]
     iternum+=1
+
     return None
 
-def analyses_func(placeholder):
+def analyses_func():
 
     global data_array, x
     
