@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/rmlans/Desktop/CBurgers/app.cpp" "/home/rmlans/Desktop/CBurgers/build/CMakeFiles/app.dir/app.cpp.o"
+  "/home/rmlans/Desktop/Research/CBurgers/app.cpp" "/home/rmlans/Desktop/Research/CBurgers/build/CMakeFiles/app.dir/app.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/rmlans/anaconda3/envs/tf2_env/include/python3.6m"
-  "/home/rmlans/anaconda3/envs/tf2_env/lib/python3.6/site-packages/numpy/core/include"
+  "/home/rmlans/miniconda3/envs/tf2_env/include/python3.6m"
+  "/home/rmlans/miniconda3/envs/tf2_env/lib/python3.6/site-packages/numpy/core/include"
   )
 
 # Targets to which this target links.

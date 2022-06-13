@@ -1,1 +1,1 @@
-/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/app.dir/app.cpp.o  -o app /usr/lib/x86_64-linux-gnu/libpython3.6m.so 
+/usr/bin/c++   -pthread -O3 -DNDEBUG   CMakeFiles/app.dir/app.cpp.o  -o app  -Wl,-rpath,/home/rmlans/miniconda3/envs/tf2_env/lib /home/rmlans/miniconda3/envs/tf2_env/lib/libpython3.6m.so 

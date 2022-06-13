@@ -1,42 +1,61 @@
 print("From python: Within python module")
 
-import os,sys
+import os,sys, threading
 HERE = os.getcwd()
 sys.path.insert(0,HERE)
 
+print('This is the thread ID (from Python):',threading.get_ident())
+
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 import matplotlib.pyplot as plt
+# import matplotlib as mpl
+# mpl.rcParams["backend"] = 'tkagg'
 
 data_array = np.zeros(shape=(2001,258)) # Very important that this matches the number of timesteps in the main solver
 x = np.arange(start=0,stop=2.0*np.pi,step=2.0*np.pi/256)
 iternum = 0
+temp_array = np.zeros(shape=(2001,258))
 
 def collection_func(input_array):
     global data_array,iternum
     data_array[iternum,:] = input_array[:]
     iternum+=1
 
+    print('Copying data for iteration:',iternum)
+
+    return None
+
+
+def data_save_func():
+    global data_array, temp_array
+    temp_array = data_array[:,:]
+
+    print('Data copy over')
+
     return None
 
 def analyses_func():
 
-    global data_array, x
-    
-    plt.figure()
-    for i in range(0,np.shape(data_array)[0],400):
-        plt.plot(x,data_array[i,1:-1],label='Timestep '+str(i))
+    global temp_array, x, iternum
+
+    print('Started plotting while iteration:',iternum,' was being completed')
+    for i in range(0,1000,400):
+        plt.plot(x,temp_array[i,1:-1],label='Timestep '+str(i))
     plt.legend()
     plt.xlabel('x')
     plt.xlabel('u')
     plt.title('Field evolution')
-    plt.savefig('Field_evolution.png')
+    plt.savefig('Field_evolution_'+str(iternum)+'.png')
     plt.close()
 
+    print('Finished plotting while iteration:',iternum,' was being completed')
+
     # Perform an SVD
-    data_array = data_array[:,1:-1]
-    print('Performing SVD')
-    u,s,v = np.linalg.svd(data_array,full_matrices=False)
+    local_data_array = temp_array[:,1:-1]
+    u,s,v = np.linalg.svd(local_data_array,full_matrices=False)
+
+    print('Performed SVD while iteration:',iternum,' was being completed')
 
     # Plot SVD eigenvectors
     plt.figure()
@@ -47,13 +66,13 @@ def analyses_func():
     plt.title('SVD Eigenvectors')
     plt.xlabel('x')
     plt.xlabel('u')
-    plt.savefig('SVD_Eigenvectors.png')
+    plt.savefig('SVD_Eigenvectors_'+str(iternum)+'.png')
     plt.close()
 
-    np.save('eigenvectors.npy',v[0:3,:].T)
+    np.save('eigenvectors_'+str(iternum)+'.npy',v[0:3,:].T)
 
     # Train an LSTM on the coefficients of the eigenvectors
-    time_series = np.matmul(v[0:3,:],data_array.T).T
+    time_series = np.matmul(v[0:3,:],local_data_array.T).T
     num_timesteps = np.shape(time_series)[0]
 
     train_series = time_series[:num_timesteps//2]
@@ -69,6 +88,8 @@ def analyses_func():
     ml_model.model_inference(test_series)
 
     return_data = v[0:3,:].T
+
+    print('Computation finished')
 
     return return_data
 
